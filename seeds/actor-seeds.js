@@ -5,6 +5,7 @@ const actorData = [
   {
     name: "Robert Downey Jr.",
     birth_date: "1965-04-04",
+    // if there are movies we can add them here as objects
     movies: [
       { id: 1, performance_rating: 5, character_name: "Tony Stark" },
       { id: 2, performance_rating: 4, character_name: "Kirk Lazarus" },
@@ -18,7 +19,6 @@ const actorData = [
   {
     name: "Dough Boy",
     birth_date: "1981-06-13",
-    movies: [{ id: 1 }, { id: 3 }],
   },
 ];
 
