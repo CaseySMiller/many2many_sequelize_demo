@@ -22,13 +22,17 @@ const actorData = [
 //seed actors and set up associations
 const seedActors = async () => {
   for (const actor of actorData) {
+    // create a new actor for each object in the actorData array
     const newActor = await Actor.create(actor);
+    // if there's movie data, loop over it and create the association in actor_movie table
     if (actor.movies) {
       for (const movieId of actor.movies) {
+        // create a new association in actor_movie table for each id in the movies array
         const newAssociation = await Actor_Movie.create({
-          actorId: newActor.id,
-          movieId: movieId,
+          actorId: newActor.id, // this column is named actor_id in the table
+          movieId: movieId, // this column is named movie_id in the table
         });
+        // console.log(newAssociation.get({ plain: true });
       }
     }
   }
@@ -45,14 +49,12 @@ const seedActorAndMovie = async () => {
           title: "Seed This!",
           release_date: '2012-05-04',
         },
-
       ]
     },
     {
       include: Movie,
     }
   );
-
 }
 
 module.exports = {seedActorAndMovie, seedActors};  

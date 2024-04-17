@@ -20,6 +20,7 @@ Movie.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    // We do not need to define the actors column here because the association for <movie>.actors will be handled by sequelize with the through table.
   },
   {
     sequelize,

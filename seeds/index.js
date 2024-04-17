@@ -1,4 +1,4 @@
-const seedMovies = require('./movie-seeds');
+const {seedMovies, seedMovieAndActor} = require('./movie-seeds');
 const { seedActorAndMovie, seedActors} = require('./actor-seeds');
 
 const sequelize = require('../config/connection');
@@ -14,6 +14,9 @@ const seedAll = async () => {
 
   await seedActors();
   console.log('\n----- Actors SEEDED -----\n');
+
+  await seedMovieAndActor();
+  console.log('\n----- Movie and Actor SEEDED -----\n');
 
   process.exit(0);
 }
